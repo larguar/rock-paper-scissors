@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<title>Rock Paper Scissors</title>
+    
+</head>
+<body>
+
+<script>	    
+	    
+	// Names game choices
+	var gameChoices = ['rock', 'paper', 'scissors'];
+	
+	// Starts each score at 0	
+	var userScore = 0;
+	var computerScore = 0;
+	var tie = 0;
+	
+	// Allows the game to repeat and keep score 5 times
+	for (var i = 0; i < 5; i++) {
+		
+		// Tells the computer to select a random number based on the number of elements in the array
+		var computerSelection = Math.floor(Math.random() * gameChoices.length);
+		
+		// Prompts the user to select one of the elements in the array, then translates the user's answer to lowercase
+		var mySelection = prompt('Select One: ' + gameChoices[0] + ', ' + gameChoices[1] + ', or ' + gameChoices[2] + '. \nBest out of 5 wins.');
+		mySelection = mySelection.toLowerCase();
+		
+		// Only continues with the next steps if the user types rock, paper, or scissors
+		if (mySelection === 'rock' || mySelection === 'paper' || mySelection === 'scissors') {		
+		
+			// If the user picks rock and the computer picks scissors, then the user wins			
+			if (mySelection === gameChoices[0] && computerSelection === 2) {
+				userScore++;
+				alert('Computer picked scissors, you win this round! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+			}
+			
+			// If the user picks rock and the computer picks paper, then the computer wins			
+			else if (mySelection === gameChoices[0] && computerSelection === 1) {
+				computerScore++;
+				alert('Computer picked paper, computer wins this round! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+			}
+			
+			// If the user picks scissors and the computer picks paper, then the user wins		
+			else if (mySelection === gameChoices[2] && computerSelection === 1) {
+				userScore++;
+				alert('Computer picked paper, you win this round! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+			}
+			
+			// If the user picks scissors and the computer picks rock, then the computer wins			
+			else if (mySelection === gameChoices[2] && computerSelection === 0) {
+				computerScore++;
+				alert('Computer picked rock, computer wins this round! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+			}
+			
+			// If the user picks paper and the computer picks rock, then the user wins			
+			else if (mySelection === gameChoices[1] && computerSelection === 0) {
+				userScore++;
+				alert('Computer picked rock, you win this round! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+			}
+			
+			// If the user picks paper and the computer picks scissors, then the computer wins			
+			else if (mySelection === gameChoices[1] && computerSelection === 2) {
+				computerScore++;
+				alert('Computer picked scissors, computer wins this round! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+			}
+			
+			// If the user picks the same as the computer, then they tie			
+			else {
+				tie++;
+				alert('You tied this round! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+			}
+		
+		}
+	
+	}
+	
+	// Declares who wins once the game is over and lists the final score
+	if (userScore > computerScore) {
+		alert('Game Over. You Win! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+	} else if (userScore < computerScore) {
+		alert('Game Over. Computer Wins! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+	} else {
+		alert('Game Over. You Tied! \n\nUser: ' + userScore + '\nComputer: ' + computerScore + '\nTie: ' + tie);
+	}
+    
+</script>
+
+</body>
+</html>
